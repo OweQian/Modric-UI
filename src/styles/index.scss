@@ -1,0 +1,5 @@
+// config
+// partials文件 只能当做模块导入，不能被编译成单独的css文件
+
+@import "variables";
+@import "reboot";
