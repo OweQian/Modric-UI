@@ -26,7 +26,7 @@ export const MenuContext = createContext<MenuContext>({
   index: '0'
 })
 
-const Menu: React.FC<MenuProps> = (props) => {
+export const Menu: React.FC<MenuProps> = (props) => {
   const {
     className,
     mode,
