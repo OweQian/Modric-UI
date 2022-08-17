@@ -7,13 +7,13 @@ const defaultProps = {
 }
 
 const testProps: ButtonProps = {
-  btnType: ButtonType.Primary,
-  size: ButtonSize.Large,
+  btnType: 'primary',
+  size: 'lg',
   className: 'klass'
 }
 
 const testAnchorProps: ButtonProps = {
-  btnType: ButtonType.Link,
+  btnType: 'link',
   href: 'http://www.baidu.com'
 }
 const disabledProps: ButtonProps = {
