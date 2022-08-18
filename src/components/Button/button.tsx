@@ -13,7 +13,7 @@ interface BaseButtonProps {
   size?: ButtonSize;
   /**设置 Button 的类型 */
   btnType?: ButtonType;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   href?: string;
 }
 
@@ -62,7 +62,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
         {...restProps}
         className={classes}
         disabled={disabled}
-        >
+      >
         {children}
       </button>
     )

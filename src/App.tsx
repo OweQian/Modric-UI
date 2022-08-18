@@ -1,17 +1,18 @@
 import React from 'react';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {fas} from '@fortawesome/free-solid-svg-icons';
 import Menu from './components/Menu/menu'
 import MenuItem from './components/Menu/menuItem'
 import SubMenu from './components/Menu/subMenu'
 import Button from './components/Button/button'
 import Icon from './components/Icon/icon'
+
 library.add(fas)
 
 function App() {
   return (
     <div className="App">
-      <Icon icon="coffee" theme="primary" size="10x" />
+      <Icon icon="coffee" theme="primary" size="10x"/>
       <Menu defaultIndex="0" onSelect={index => console.log(index)} defaultOpenSubMenus={['2']}>
         <MenuItem>
           cool link

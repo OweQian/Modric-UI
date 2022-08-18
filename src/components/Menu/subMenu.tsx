@@ -1,15 +1,17 @@
-import React, { useContext, useState } from 'react';
+import React, {useContext, useState} from 'react';
 import classNames from 'classnames';
-import { MenuContext } from './menu';
-import { MenuItemProps } from './menuItem';
+import {MenuContext} from './menu';
+import {MenuItemProps} from './menuItem';
 import Transition from '../Transition/transition';
 import Icon from '../Icon/icon';
 
 export interface SubMenuProps {
   index?: string;
+  /**下拉菜单选项的文字 */
   title: string;
+  /**下拉菜单选型的扩展类名 */
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const SubMenu: React.FC<SubMenuProps> = (props) => {
@@ -22,7 +24,7 @@ export const SubMenu: React.FC<SubMenuProps> = (props) => {
   const context = useContext(MenuContext)
   const openedSubMenus = context.defaultOpenSubMenus as string[]
   const isOpened = (index && context.mode === 'vertical') ? openedSubMenus.includes(index) : false
-  const [ menuOpen, setOpen ] = useState(isOpened)
+  const [menuOpen, setOpen] = useState(isOpened)
   const classes = classNames('menu-item submenu-item', className, {
     'is-active': context.index === index,
     'is-opened': menuOpen,
@@ -62,13 +64,13 @@ export const SubMenu: React.FC<SubMenuProps> = (props) => {
     })
     const childrenComponent = React.Children.map(children, (child, i) => {
       const childElement = child as React.FunctionComponentElement<MenuItemProps>
-      const { displayName } = childElement.type
+      const {displayName} = childElement.type
       if (displayName === 'MenuItem') {
         return React.cloneElement(childElement, {
           index: `${index}-${i}`
         })
       } else {
-        console.error('Warning: Menu has a child which is not a MenuItem component')
+        console.error('Warning: SubMenu has a child which is not a MenuItem component')
       }
     })
     return (
@@ -77,7 +79,7 @@ export const SubMenu: React.FC<SubMenuProps> = (props) => {
         timeout={300}
         animation="zoom-in-top">
         <ul className={subMenuClasses}>
-          { childrenComponent }
+          {childrenComponent}
         </ul>
       </Transition>
     )
@@ -87,9 +89,9 @@ export const SubMenu: React.FC<SubMenuProps> = (props) => {
     <li key={index} className={classes} {...hoverEvents}>
       <div className="submenu-title" {...clickEvents}>
         {title}
-        <Icon icon="angle-down" className="arrow-icon" />
+        <Icon icon="angle-down" className="arrow-icon"/>
       </div>
-      { renderChildren() }
+      {renderChildren()}
     </li>
   )
 }

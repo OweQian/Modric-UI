@@ -1,9 +1,8 @@
 import React from 'react';
+import {ComponentMeta, ComponentStory} from '@storybook/react';
 import Menu from './menu';
 import SubMenu from './subMenu'
 import MenuItem from './menuItem'
-
-import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 const menuMeta: ComponentMeta<typeof Menu> = {
   title: 'Menu',
@@ -12,28 +11,13 @@ const menuMeta: ComponentMeta<typeof Menu> = {
   subcomponents: {
     'SubMenu': SubMenu,
     'MenuItem': MenuItem
-  },
-  args: {
-    defaultIndex: '0',
-  },
-  argTypes: {
-    defaultIndex: {
-      control: 'color'
-    }
-  },
-  parameters: {
-    controls: {
-      matchers: {
-        date: /mode$/
-      }
-    }
   }
 }
 
 export default menuMeta
 
-const Template: ComponentStory<typeof Menu> = (args) => (
-  <Menu {...args}>
+export const ADefaultMenu: ComponentStory<typeof Menu> = (args) => (
+  <Menu defaultIndex='0' {...args} >
     <MenuItem>
       cool link
     </MenuItem>
@@ -53,11 +37,44 @@ const Template: ComponentStory<typeof Menu> = (args) => (
     </SubMenu>
   </Menu>
 )
+ADefaultMenu.storyName = 'Default'
 
-export const DefaultMenu = Template.bind({})
+export const BClickMenu: ComponentStory<typeof Menu> = (args) => (
+  <Menu {...args} defaultIndex='0' mode="vertical">
+    <MenuItem>
+      cool link
+    </MenuItem>
+    <MenuItem>
+      cool link 2
+    </MenuItem>
+    <SubMenu title="点击下拉选项">
+      <MenuItem>
+        下拉选项一
+      </MenuItem>
+      <MenuItem>
+        下拉选项二
+      </MenuItem>
+    </SubMenu>
+  </Menu>
+)
+BClickMenu.storyName = 'Vertical'
 
-export const VerticalMenu = Template.bind({})
-VerticalMenu.args = {
-  defaultIndex: '1',
-  mode: 'vertical'
-}
+export const COpenedMenu:ComponentStory<typeof Menu> = (args) => (
+  <Menu {...args} defaultIndex='0' mode="vertical" defaultOpenSubMenus={['2']}>
+    <MenuItem>
+      cool link
+    </MenuItem>
+    <MenuItem>
+      cool link 2
+    </MenuItem>
+    <SubMenu title="默认展开下拉选项">
+      <MenuItem>
+        下拉选项一
+      </MenuItem>
+      <MenuItem>
+        下拉选项二
+      </MenuItem>
+    </SubMenu>
+  </Menu>
+)
+COpenedMenu.storyName = 'More'
