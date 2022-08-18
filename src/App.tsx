@@ -9,12 +9,20 @@ import Icon from './components/Icon/icon'
 import Alert from './components/Alert/alert'
 import Tabs from './components/Tabs/tabs'
 import TabItem from './components/Tabs/tabItem'
+import Input from './components/Input/input'
 
 library.add(fas)
 
 function App() {
   return (
     <div className="App">
+      <Input placeholder="漂亮的input"/>
+      <Input placeholder="漂亮的input" disabled />
+      <Input placeholder="漂亮的input" icon="search" />
+      <Input placeholder="漂亮的input" size="lg" />
+      <Input placeholder="漂亮的input" size="sm" />
+      <Input defaultValue="www.google.com" prepend="http://" />
+      <Input defaultValue="http://www.google" append=".com" />
       <Tabs defaultIndex={1}>
         <TabItem label="tab1">content1</TabItem>
         <TabItem label="tab2">content2</TabItem>
