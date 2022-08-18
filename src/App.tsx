@@ -6,12 +6,14 @@ import MenuItem from './components/Menu/menuItem'
 import SubMenu from './components/Menu/subMenu'
 import Button from './components/Button/button'
 import Icon from './components/Icon/icon'
+import Alert from './components/Alert/alert'
 
 library.add(fas)
 
 function App() {
   return (
     <div className="App">
+      <Alert title="this is alert"/>
       <Icon icon="coffee" theme="primary" size="10x"/>
       <Menu defaultIndex="0" onSelect={index => console.log(index)} defaultOpenSubMenus={['2']}>
         <MenuItem>

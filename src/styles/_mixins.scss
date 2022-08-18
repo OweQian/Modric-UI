@@ -60,3 +60,9 @@
     transform-origin: $origin;
   }
 }
+
+@mixin alert-style($background, $border, $color) {
+  color: $color;
+  background: $background;
+  border-color: $border;
+}
