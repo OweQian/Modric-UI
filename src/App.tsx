@@ -7,12 +7,19 @@ import SubMenu from './components/Menu/subMenu'
 import Button from './components/Button/button'
 import Icon from './components/Icon/icon'
 import Alert from './components/Alert/alert'
+import Tabs from './components/Tabs/tabs'
+import TabItem from './components/Tabs/tabItem'
 
 library.add(fas)
 
 function App() {
   return (
     <div className="App">
+      <Tabs defaultIndex={1}>
+        <TabItem label="tab1">content1</TabItem>
+        <TabItem label="tab2">content2</TabItem>
+        <TabItem label="disabled" disabled>content3</TabItem>
+      </Tabs>
       <Alert title="this is alert"/>
       <Icon icon="coffee" theme="primary" size="10x"/>
       <Menu defaultIndex="0" onSelect={index => console.log(index)} defaultOpenSubMenus={['2']}>
