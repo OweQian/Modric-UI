@@ -87,6 +87,7 @@ export const Select: React.FC<SelectProps> = (props) => {
     }
   })
 
+  // 点击文档其它地方 收起下拉框
   useClickOutside(containerRef, () => {
     setMenuOpen(false)
     onVisibleChange && onVisibleChange(false)
@@ -102,6 +103,7 @@ export const Select: React.FC<SelectProps> = (props) => {
     }
     let updatedValues = [value]
     if (multiple) {
+      // 已添加过和未添加过
       updatedValues = isSelected ? selectedValues.filter(v => v !== value) : [...selectedValues, value]
       setSelectedValues(updatedValues)
     }
