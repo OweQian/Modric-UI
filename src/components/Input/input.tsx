@@ -16,7 +16,7 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLElement>,
   prepend?: string | React.ReactElement;
   /**添加后缀 用于配置一些固定组合 */
   append?: string | React.ReactElement;
-  onChange?: (e: React.ChangeEvent) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 /**
@@ -49,6 +49,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   })
 
   const fixControlledValue = (value: any) => {
+    console.log(props, value)
     if (typeof value === 'undefined' || value === null) {
       value = ''
     }
