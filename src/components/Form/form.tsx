@@ -16,8 +16,8 @@ export interface FormProps {
   onFinishFailed?: (values: Record<string, any>, errors: Record<string, ValidateError[]>) => void;
 }
 
-export type FormContext = Pick<ReturnType<typeof useStore>, 'dispatch' | 'fields' | 'validateField'> & Pick<FormProps, 'initialValues'>
-export const FormContext = createContext<FormContext>({} as FormContext)
+export type IFormContext = Pick<ReturnType<typeof useStore>, 'dispatch' | 'fields' | 'validateField'> & Pick<FormProps, 'initialValues'>
+export const FormContext = createContext<IFormContext>({} as IFormContext)
 export type FormRef = Omit<ReturnType<typeof useStore>, 'fields' | 'dispatch' | 'form'>
 export const Form = React.forwardRef<FormRef, FormProps>((props, ref) => {
   const {
@@ -35,7 +35,7 @@ export const Form = React.forwardRef<FormRef, FormProps>((props, ref) => {
     ...restProps
   }))
 
-  const passedContext: FormContext = {
+  const passedContext: IFormContext = {
     dispatch,
     fields,
     initialValues,

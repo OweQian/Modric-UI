@@ -11,4 +11,22 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  viewMode: 'docs',
+  options: {
+    storySort: {
+      order: [
+        'Welcome',
+        'Button',
+        'Alert',
+        'Menu',
+        'Tabs',
+        'Icon',
+        'Input',
+        'AutoComplete',
+        'Select',
+        'Upload',
+        'Form'
+      ],
+    },
+  },
 }
