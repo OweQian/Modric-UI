@@ -1,16 +1,14 @@
 import React from 'react';
 import {ComponentMeta, ComponentStory} from '@storybook/react';
-import Menu from './menu';
-import SubMenu from './subMenu'
-import MenuItem from './menuItem'
+import Menu from './index';
 
 const menuMeta: ComponentMeta<typeof Menu> = {
   title: 'Menu',
   id: 'Menu',
   component: Menu,
   subcomponents: {
-    'SubMenu': SubMenu,
-    'MenuItem': MenuItem
+    'SubMenu': Menu.SubMenu,
+    'MenuItem': Menu.Item
   }
 }
 
@@ -18,63 +16,63 @@ export default menuMeta
 
 export const ADefaultMenu: ComponentStory<typeof Menu> = (args) => (
   <Menu defaultIndex='0' {...args} >
-    <MenuItem>
+    <Menu.Item>
       cool link
-    </MenuItem>
-    <MenuItem>
+    </Menu.Item>
+    <Menu.Item>
       cool link 2
-    </MenuItem>
-    <MenuItem disabled>
+    </Menu.Item>
+    <Menu.Item disabled>
       disabled
-    </MenuItem>
-    <SubMenu title="下拉选项">
-      <MenuItem>
+    </Menu.Item>
+    <Menu.SubMenu title="下拉选项">
+      <Menu.Item>
         下拉选项一
-      </MenuItem>
-      <MenuItem>
+      </Menu.Item>
+      <Menu.Item>
         下拉选项二
-      </MenuItem>
-    </SubMenu>
+      </Menu.Item>
+    </Menu.SubMenu>
   </Menu>
 )
 ADefaultMenu.storyName = 'Default'
 
 export const BClickMenu: ComponentStory<typeof Menu> = (args) => (
   <Menu {...args} defaultIndex='0' mode="vertical">
-    <MenuItem>
+    <Menu.Item>
       cool link
-    </MenuItem>
-    <MenuItem>
+    </Menu.Item>
+    <Menu.Item>
       cool link 2
-    </MenuItem>
-    <SubMenu title="点击下拉选项">
-      <MenuItem>
+    </Menu.Item>
+    <Menu.SubMenu title="点击下拉选项">
+      <Menu.Item>
         下拉选项一
-      </MenuItem>
-      <MenuItem>
+      </Menu.Item>
+      <Menu.Item>
         下拉选项二
-      </MenuItem>
-    </SubMenu>
+      </Menu.Item>
+    </Menu.SubMenu>
   </Menu>
 )
 BClickMenu.storyName = 'Vertical'
 
 export const COpenedMenu:ComponentStory<typeof Menu> = (args) => (
   <Menu {...args} defaultIndex='0' mode="vertical" defaultOpenSubMenus={['2']}>
-    <MenuItem>
+    <Menu.Item>
       cool link
-    </MenuItem>
-    <MenuItem>
+    </Menu.Item>
+    <Menu.Item>
       cool link 2
-    </MenuItem>
-    <SubMenu title="默认展开下拉选项">
-      <MenuItem>
+    </Menu.Item>
+    <Menu.SubMenu title="默认展开下拉选项">
+      <Menu.Item>
         下拉选项一
-      </MenuItem>
-      <MenuItem>
+      </Menu.Item>
+      <Menu.Item>
         下拉选项二
-      </MenuItem>
-    </SubMenu>
+      </Menu.Item>
+    </Menu.SubMenu>
   </Menu>
 )
 COpenedMenu.storyName = 'More'

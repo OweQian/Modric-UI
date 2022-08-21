@@ -1,6 +1,6 @@
 import React from 'react';
 import {fireEvent, render} from '@testing-library/react';
-import Button, {ButtonProps, ButtonSize, ButtonType} from './button';
+import Button, {ButtonProps} from './button';
 
 const defaultProps = {
   onClick: jest.fn() // mock function

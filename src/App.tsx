@@ -10,7 +10,7 @@ import Alert from './components/Alert/alert'
 import Tabs from './components/Tabs/tabs'
 import TabItem from './components/Tabs/tabItem'
 import Input from './components/Input/input'
-import {AutoComplete} from "./components/AutoComplete/autoComplete";
+import AutoComplete from "./components/AutoComplete/autoComplete";
 
 library.add(fas)
 

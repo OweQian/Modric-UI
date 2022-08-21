@@ -2,10 +2,9 @@ import React, { useRef } from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import Form, { FormRef } from './form'
 import Item from './formItem'
-import Input from '../Input/input'
-import Button from '../Button/button'
-import Select from '../Select/select'
-import Option from '../Select/option'
+import Input from '../Input'
+import Button from '../Button'
+import Select from '../Select'
 import { CustomRule } from './useStore'
 
 const FormMeta: ComponentMeta<typeof Form> ={
@@ -73,8 +72,8 @@ export const BRegForm: ComponentStory<typeof Form> = (args) => {
         <Select
           placeholder="请选择性别"
         >
-          <Option value="男" />
-          <Option value="女" />
+          <Select.Option value="男" />
+          <Select.Option value="女" />
         </Select>
       </Item>
       <div className='agreement-section' style={{ 'display': 'flex', 'justifyContent': 'center'}}>
