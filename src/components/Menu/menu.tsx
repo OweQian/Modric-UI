@@ -19,14 +19,14 @@ export interface MenuProps {
   children?: React.ReactNode;
 }
 
-interface MenuContext {
+interface IMenuContext {
   index: string;
   onSelect?: SelectCallback;
   mode?: MenuMode;
   defaultOpenSubMenus?: string[];
 }
 
-export const MenuContext = createContext<MenuContext>({
+export const MenuContext = createContext<IMenuContext>({
   index: '0'
 })
 
@@ -62,7 +62,7 @@ export const Menu: React.FC<MenuProps> = (props) => {
     onSelect && onSelect(index)
   }
 
-  const passedContext: MenuContext = {
+  const passedContext: IMenuContext = {
     index: currentActive ? currentActive : '0',
     onSelect: handleClick,
     mode,

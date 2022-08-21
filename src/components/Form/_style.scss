@@ -1,0 +1,56 @@
+.form {
+  .row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    &.row-no-label {
+      flex-direction: row-reverse;
+    }
+    .form-item-label {
+      flex-basis: 30%;
+      text-align: right;
+      padding-right: 20px;
+      >label {
+        margin-bottom: 0;
+      }
+      >label.form-item-required:before {
+        display: inline-block;
+        margin-right: 4px;
+        color: $danger;
+        font-size: 14px;
+        font-family: SimSun,sans-serif;
+        line-height: 1;
+        content: "*";
+      }
+    }
+    .form-item {
+      flex-basis: 70%;
+      position: relative;
+      .input-wrapper {
+        margin-bottom: 0;
+      }
+      .form-item-has-error.form-item-control {
+        .input-inner {
+          border: 1px solid $danger;
+          &:focus {
+            box-shadow: $input-focus-box-shadow-error;
+          }
+        }
+      }
+      .form-item-explain {
+        position: absolute;
+        bottom: -25px;
+        left: 0;
+        line-height: 25px;
+        color: $danger;
+        min-width: 100px;
+      }
+    }
+  }
+  .form-submit-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
